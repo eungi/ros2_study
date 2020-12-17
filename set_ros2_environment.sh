@@ -42,6 +42,7 @@ cecho "[Note] Install basic tools"
 sudo apt install -y \
     cmake \
     curl \
+    g++ \
     htop \
     iftop \
     terminator \

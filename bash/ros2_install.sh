@@ -48,12 +48,17 @@ function install_ros2_packages()
     cecho "[Note] Install argcomplete to command line autocompletion"
     sudo apt install -y \
         python3-argcomplete \
-        python3-colcon-common-extensions
+        python3-colcon-common-extensions \
+        ros-dashing-launch-testing \
+        ros-dashing-launch-testing-ament-cmake
 
     cecho "[Note] Create local development environment"
     mkdir -p ~/ros2_ws/src
+    cp -r "$LOCALE_PATH"/test_codes/* ~/ros2_ws/src
+    source ~/.bashrc
     cd ~/ros2_ws
     colcon build --symlink-install
+    source ~/.bashrc
 
     sh -c "echo \"\" >> ~/.bashrc"
     sh -c "echo \"### Set the ROS2 environment\" >> ~/.bashrc"
